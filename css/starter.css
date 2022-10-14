@@ -1,16 +1,18 @@
 
-/* LOGO ANIMATION */
+/* ANIMATE LOGO WITH KEYFRAMES */
+/* craetes the animation */
 @keyframes logo_animation {
   from {width: 25px; opacity: 0;}
   to {width: 475px; opacity: 1;}
 }
 
+/* applies the animation where the id logo is used */
 #logo {
   animation-name: logo_animation;
   animation-duration: 5s;
 }
 
-
+/* CHANGED FONT FAMILY  & ADDED BACKGROUND IMAGE*/
 body{
   margin: 0;
   padding: 0;
@@ -65,12 +67,14 @@ footer{
 }
 
 
-  
+  /* CARDS */
+
 
 .pricing{
   min-height: 475px;
 }
 
+  /* You should use flex and the cards should be centered both horizontally and vertically */
 .pricing {
   display: flex;
   flex-direction: row;
@@ -79,19 +83,18 @@ footer{
   align-items: center;
 }
 
+/* Set initial size and add border radius as needed to match the example */
 .card {
   margin: 12px;
   background: #fff;
   border-radius: 7px;
   padding: 0 0 25px 0;
-}
-
-.card {
   flex-basis: 450px;
   border-top-right-radius: 50px;
   border-top-left-radius: 50px;
 }
 
+/* Style header elements that are direct children of a card class */
 .card > header {
   background-color: #288080;
   border: 2px solid #45ADAD;
@@ -128,21 +131,24 @@ footer{
   text-align: center;
 }
   
+/* GALLERY */
 
+/* use flex to make gallery match the example */
 .gallery {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* wraps elements as the screen moves */
   justify-content: center;
 }
 
+/* add a border and margin to the images in the gallery, set width to 300px */
 .gallery img {
   border: 10px solid #50C7C7;
   margin: 10px 10px 10px 10px;
   width: 300px;
 }
 
-
+/* HEADER */
 
 header{
   background: #fff;
@@ -154,21 +160,26 @@ header{
   align-items: center;
 }
 
+/* NAV BAR */
+
+/* start by styling the nav for mobile device */
 .nav_links {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* aligned by the first letter of the word */
 }
 
 .nav_item a {
   padding: 10px;
 }
   
+/* makes sure the viisted links don't change color */
 .nav_links a:visited {
   color: blue;
 }
 
+/* styles the links when you interact with them (hover or focus) */
 .nav_item a:hover, a:focus{
   color: #50C7C7;
   text-decoration: underline;
@@ -176,21 +187,24 @@ header{
           text-decoration-style: dotted;
 }
 
+/* eliminates the animation when the user prefers reduced motion */
 @media screen and (prefers-reduced-motion: reduce) {
   #logo {
     animation: none;
   }
 }
   
-
+/* styles the following elements when the screen is greater than or equal to 900px */
 @media screen and (min-width: 900px) {
+
+  /* change the flex direction from column to row to match example */
   header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-
+  
   .nav_links {
     display: flex;
     flex-direction: row;
@@ -199,6 +213,7 @@ header{
     list-style: none;
   }
 
+  /* use flex to specify a "size" of 275px, style accordingly to match example */
   .pricing, .card {
     flex-basis: 275px;
     flex-direction: row;
@@ -207,48 +222,57 @@ header{
     justify-content: center;
   }
 
+  /* style header so it stays at the top of the page, even when you scroll */
   body > header {
     position: sticky;
     top: 0px;
   }
 }
 
+/* styles the following elements for when the page is printed */
 @media print {
+
+  /* change font family and remove image */
   body {
     font-family: Arial, Helvetica;
     background-image: none;
   }
 
+  /* spreads the nav links horizontally  */
   .nav_links {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 
+  /* makes sure the nav takes up the whole width */
   nav {
     width: 100%;
   }
 
+  /* style the pricing class so the elements algn by the bottom */
   .pricing {
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end;
   } 
 
+  /* add the thumbs up after the last word of the second child of the list */
   .pricing li:nth-child(2)::after {
     content: "👍";
   }
 
+  /* add a border and se the flex basis */
   .card {
     flex-direction: row;
     flex-basis: 325px;
     border: 2px solid #45ADDD;
   }
 
+  /* make sure the gallery and the title of the gallery are not visible */
   #gallery, .gallery {
     display: none;
   }
-
 }
 
 
